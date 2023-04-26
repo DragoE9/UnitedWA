@@ -16,7 +16,7 @@ The following information is also available in-app by running the "help" command
 8. exit - exit
 This program performs input standardisation meaning that nothing should be case-sensitive. The program can handle spaces in region names, but commands must use underscores.
 ## Advanced
-This program uses csv files (regions.csv, recomendations.csv, votepower.csv) to store data, so it can be remembered the next time. These files must exist in the folder where the main program (UnitedWA.py) is located or else it won't work. It is not reccomended to edit these files directly. The program provides input standardisation and auto-formatting. If you do edit these files you must make sure they are in the correct format or else they won't work.
+This program uses csv files (regions.csv, recomendations.csv, votepower.csv) to store data, so it can be remembered the next time. These files must exist in the folder where the main program (UnitedWA.py) is located or else it won't work. It is not reccomended to edit these files directly. The program provides input standardisation and auto-formatting. If you do edit these files you must make sure they are in the correct format or else they won't work. The files provided have placeholder data, because some commands may cause crashes if run on empty files.
 ## Known Issues
 None Currently
 ## Features to be added
