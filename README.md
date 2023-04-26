@@ -2,6 +2,8 @@
 A command-line python tool for the managing and monitoring of WA Voting Blocks in NationStates
 ## About
 This project uses the pynationstates wraper, which much be installed (pip install nationstates) prior to use of this application. This application makes calls to the nationstates.net API. The username you provide will be given to the API as part of the UserAgent the program sends to identify itself to the API. This application uses pynationstates' built-in rate-limiter.
+## Usage
+Download the whole repository. All of the files are required to have the program work. Launch the app by running UnitedWA.py
 ## Commands
 The following information is also available in-app by running the "help" command:
 1. compliance - Checks the compliance of dossier regions with your WA recomendation. Export report as csv available.
