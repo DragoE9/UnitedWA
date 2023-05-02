@@ -54,16 +54,13 @@ while True:
         total_endo = 0
         total_member = 0
         total_power = 0
-        WA_Nations = set(((api.wa(1).get_shards("members"))["members"]).split(","))
         for region in regions[0]:
             current_region = api.region(region)
             delegate = current_region.delegate
             nation = api.nation(delegate)
             del_endos = (nation.endorsements).split(",")
             num_endos = len(del_endos)
-            members = set(((current_region.get_shards("nations"))["nations"]).split(":"))
-            WA_members = WA_Nations.intersection(members)
-            WA_number = len(WA_members)
+            WA_number = int((current_region.get_shards("numwanations"))["numunnations"])
             Power_Voting = [region,num_endos,WA_number,(num_endos+WA_number)]
             Voting_Power.append(Power_Voting)
             print("{:20}{:6}{:6}{:6}".format(region,num_endos,WA_number,Power_Voting[3]))
