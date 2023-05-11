@@ -20,4 +20,4 @@ This program uses csv files (regions.csv, recomendations.csv, votepower.csv) to 
 ## Known Issues
 None Currently
 ## Features to be added
-None Currently
+- A way to re-order the list of dossier regions
