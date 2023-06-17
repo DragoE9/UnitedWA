@@ -89,6 +89,7 @@ while True:
         new_entry = input("Enter a region: ").lower().strip()
         new_entry = new_entry.replace(" ","_")
         regions[0].append(new_entry)
+        regions[0].sort()
         with open("regions.csv","w",newline="") as regions_file:
             writer = csv.writer(regions_file,delimiter=",")
             writer.writerow(regions[0])
