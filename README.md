@@ -18,6 +18,6 @@ This program performs input standardisation meaning that nothing should be case-
 ## Advanced
 This program uses csv files (regions.csv, recomendations.csv, votepower.csv) to store data, so it can be remembered the next time. These files must exist in the folder where the main program (UnitedWA.py) is located or else it won't work. It is not reccomended to edit these files directly. The program provides input standardisation and auto-formatting. If you do edit these files you must make sure they are in the correct format or else they won't work. The files provided have placeholder data, because some commands may cause crashes if run on empty files.
 ## Known Issues
-None Currently
+- There is no exception to handle a region not having a delegate and this causes a crash.
 ## Features to be added
-- A way to re-order the list of dossier regions
+- None Currently
