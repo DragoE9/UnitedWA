@@ -24,22 +24,32 @@ while True:
             for region in regions[0]:
                 current_region = api.region(region)
                 delegate = current_region.delegate
-                nation = api.nation(delegate)
-                vote = nation.gavote
-                compliance = CompE.Compliance(WA_recs[0][0],vote)
+                if delegate == "0":
+                    delegate = "No Delegate"
+                    vote = "UNDECIDED"
+                    compliance = "Non-Compliant"
+                else:
+                    nation = api.nation(delegate)
+                    vote = nation.gavote
+                    compliance = CompE.Compliance(WA_recs[0][0],vote)
                 report_list = [region,delegate,vote,compliance]
                 comp_report.append(report_list)
-                print("{:20}  {:20}  {:8}  {:15}".format(region,delegate,vote,compliance))
+                print("{:25}  {:20}  {:10}  {:15}".format(region,delegate,vote,compliance))
         elif Chamber == "SC":
             for region in regions[0]:
                 current_region = api.region(region)
                 delegate = current_region.delegate
-                nation = api.nation(delegate)
-                vote = nation.scvote
-                compliance = CompE.Compliance(WA_recs[0][1],vote)
+                if delegate == "0":
+                    delegate = "No Delegate"
+                    vote = "UNDECIDED"
+                    compliance = "Non-Compliant"
+                else:
+                    nation = api.nation(delegate)
+                    vote = nation.scvote
+                    compliance = CompE.Compliance(WA_recs[0][1],vote)
                 report_list = [region,delegate,vote,compliance]
                 comp_report.append(report_list)
-                print("{:20}  {:20}  {:8}  {:15}".format(region,delegate,vote,compliance))
+                print("{:25}  {:20}  {:10}  {:15}".format(region,delegate,vote,compliance))
         else:
             print("Unknown Chamber")
         if input("\nExport Report? ").lower().strip() == "yes":
@@ -57,13 +67,16 @@ while True:
         for region in regions[0]:
             current_region = api.region(region)
             delegate = current_region.delegate
-            nation = api.nation(delegate)
-            del_endos = (nation.endorsements).split(",")
-            num_endos = len(del_endos)
+            if delegate == "0":
+                num_endos = 0
+            else:
+                nation = api.nation(delegate)
+                del_endos = (nation.endorsements).split(",")
+                num_endos = len(del_endos)
             WA_number = int((current_region.get_shards("numwanations"))["numunnations"])
             Power_Voting = [region,num_endos,WA_number,(num_endos+WA_number)]
             Voting_Power.append(Power_Voting)
-            print("{:20}{:6}{:6}{:6}".format(region,num_endos,WA_number,Power_Voting[3]))
+            print("{:25}{:6}{:6}{:6}".format(region,num_endos,WA_number,Power_Voting[3]))
             total_endo += num_endos
             total_member += WA_number
             total_power += Power_Voting[3]
@@ -165,6 +178,10 @@ while True:
         break
     elif user_select == "help":
         print("\nAvailable Commands:\ncompliance - check compliance of dossier regions\nregion_add - add a region to the observance dossier\nregion_del - remove region from dossier\nregion_list - Lists all regions currently under observance\nrec_update - update voting recomendations\npower_refresh - update regional voting powers (DO NOT OVERUSE)\ncalc_vote - calculate WA vote recomendation based on URA standard formula\nexit - exit\n")
+    elif user_select == "test_func":
+        current_region = api.region("the_drago_den")
+        delegate = current_region.delegate
+        print(type(delegate))
     else:
         print("Unknown Command")
 
